@@ -576,7 +576,7 @@ export default function Editor(props: EditorProps) {
     lineGroups,
   ])
 
-  useHotKey("meta+s,ctrl+s", download)
+  useHotKey("meta+s,ctrl+s,s", download)
 
   const toggleShowBrush = (newState: boolean) => {
     if (newState !== showBrush && !isPanning && !isCropperExtenderResizing) {
@@ -598,7 +598,7 @@ export default function Editor(props: EditorProps) {
   }, [showBrush, isPanning, isProcessing])
 
   useHotKey(
-    "[",
+    "z",
     () => {
       decreaseBaseBrushSize()
     },
@@ -606,7 +606,7 @@ export default function Editor(props: EditorProps) {
   )
 
   useHotKey(
-    "]",
+    "x",
     () => {
       increaseBaseBrushSize()
     },
@@ -615,7 +615,7 @@ export default function Editor(props: EditorProps) {
 
   // Manual Inpainting Hotkey
   useHotKey(
-    "shift+r",
+    "m",
     () => {
       if (runMannually && hadDrawSomething()) {
         runInpainting()

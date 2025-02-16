@@ -88,26 +88,28 @@ export default function FileManager(props: Props) {
   })
 
   useHotKey(
-    "left",
+    "a",
     () => {
       let newIndex = photoIndex
       if (photoIndex > 0) {
         newIndex = photoIndex - 1
       }
       setPhotoIndex(newIndex)
+      updateFileManagerState({currentIndex: newIndex})
       onPhotoClick(tab, photos[newIndex].name)
     },
     [photoIndex, photos]
   )
 
   useHotKey(
-    "right",
+    "d",
     () => {
       let newIndex = photoIndex
       if (photoIndex < photos.length - 1) {
         newIndex = photoIndex + 1
       }
       setPhotoIndex(newIndex)
+      updateFileManagerState({currentIndex: newIndex})
       onPhotoClick(tab, photos[newIndex].name)
     },
     [photoIndex, photos]

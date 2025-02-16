@@ -61,20 +61,24 @@ export function Shortcuts() {
           <div className="flex gap-2 flex-col pt-4">
             <ShortCut content="Pan" keys={["Space + Drag"]} />
             <ShortCut content="Reset Zoom/Pan" keys={["Esc"]} />
-            <ShortCut content="Decrease Brush Size" keys={["["]} />
-            <ShortCut content="Increase Brush Size" keys={["]"]} />
+            <ShortCut content="Decrease Brush Size" keys={["Z"]} />
+            <ShortCut content="Increase Brush Size" keys={["X"]} />
             <ShortCut content="View Original Image" keys={["Hold Tab"]} />
 
+            <ShortCut content="Prev Image" keys={["A"]} />
+            <ShortCut content="Next Image" keys={["D"]} />
+
+            <ShortCut content="Save Image" keys={["S"]} />
             <ShortCut content="Undo" keys={[CmdOrCtrl(), "Z"]} />
             <ShortCut content="Redo" keys={[CmdOrCtrl(), "Shift", "Z"]} />
             <ShortCut content="Copy Result" keys={[CmdOrCtrl(), "C"]} />
             <ShortCut content="Paste Image" keys={[CmdOrCtrl(), "V"]} />
             <ShortCut
               content="Trigger Manually Inpainting"
-              keys={["Shift", "R"]}
+              keys={["M"]}
             />
             <ShortCut content="Toggle Hotkeys Dialog" keys={["H"]} />
-            <ShortCut content="Toggle Settings Dialog" keys={["S"]} />
+            <ShortCut content="Toggle Settings Dialog" keys={["Shift", "S"]} />
             <ShortCut content="Toggle File Manager" keys={["F"]} />
           </div>
         </DialogHeader>

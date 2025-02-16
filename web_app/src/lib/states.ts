@@ -45,6 +45,8 @@ type FileManagerState = {
   searchText: string
   inputDirectory: string
   outputDirectory: string
+  currentIndex: number
+  totalImage: number
 }
 
 type CropperState = {
@@ -293,6 +295,8 @@ const defaultValues: AppState = {
     searchText: "",
     inputDirectory: "",
     outputDirectory: "",
+    currentIndex: -1,
+    totalImage: -1
   },
   serverConfig: {
     plugins: [],

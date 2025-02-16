@@ -7,6 +7,7 @@ import Plugins from "./Plugins"
 import { InteractiveSeg } from "./InteractiveSeg"
 import SidePanel from "./SidePanel"
 import DiffusionProgress from "./DiffusionProgress"
+import FileIndex from "./FileIndex"
 
 const Workspace = () => {
   const [file, updateSettings] = useStore((state) => [
@@ -27,6 +28,7 @@ const Workspace = () => {
       <div className="flex gap-3 absolute top-[68px] left-[24px] items-center">
         <Plugins />
         <ImageSize />
+        <FileIndex />
       </div>
       <InteractiveSeg />
       <DiffusionProgress />

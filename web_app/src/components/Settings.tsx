@@ -260,7 +260,7 @@ export function SettingsDialog() {
   }
 
   useHotKey(
-    "s",
+    "shift+s",
     () => {
       toggleOpen()
       if (open) {

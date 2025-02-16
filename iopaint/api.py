@@ -65,6 +65,7 @@ from iopaint.schema import (
 
 CURRENT_DIR = Path(__file__).parent.absolute().resolve()
 WEB_APP_DIR = CURRENT_DIR / "web_app"
+WEB_ASSETS_DIR = WEB_APP_DIR / "assets"
 
 
 def api_middleware(app: FastAPI):
@@ -171,7 +172,9 @@ class Api:
         self.add_api_route("/api/v1/samplers", self.api_samplers, methods=["GET"])
         self.add_api_route("/api/v1/adjust_mask", self.api_adjust_mask, methods=["POST"])
         self.add_api_route("/api/v1/save_image", self.api_save_image, methods=["POST"])
+        self.app.mount("/assets", StaticFiles(directory=WEB_ASSETS_DIR), name="assets")
         self.app.mount("/", StaticFiles(directory=WEB_APP_DIR, html=True), name="assets")
+        
         # fmt: on
 
         global global_sio
@@ -291,8 +294,9 @@ class Api:
 
         rgb_np_img = cv2.cvtColor(rgb_np_img.astype(np.uint8), cv2.COLOR_BGR2RGB)
         rgb_res = concat_alpha_channel(rgb_np_img, alpha_channel)
+        rgb_res = rgb_res[:, :, :3]
 
-        ext = "png"
+        ext = "jpg"
         res_img_bytes = pil_to_bytes(
             Image.fromarray(rgb_res),
             ext=ext,
